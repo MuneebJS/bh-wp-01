@@ -1,70 +1,103 @@
-diff --git a/themes/techbiz/teams.php b/themes/techbiz/teams.php
-index 74fac67..72cdc99 100644
---- a/themes/techbiz/teams.php
-+++ b/themes/techbiz/teams.php
-@@ -37,53 +37,34 @@ do_action( 'techbiz_page_start_wrap' );
-  */
- do_action( 'techbiz_page_col_start_wrap' );
+diff --git a/themes/techbiz/inc/hooks/hooks-functions.php b/themes/techbiz/inc/hooks/hooks-functions.php
+index 2e4db46..3eb371b 100644
+--- a/themes/techbiz/inc/hooks/hooks-functions.php
++++ b/themes/techbiz/inc/hooks/hooks-functions.php
+@@ -766,6 +766,59 @@
+         }
+     }
  
--// Dummy team members — replace with dynamic data (CPT, ACF, etc.) when ready
- $techbiz_team_members = array(
-     array(
--        'name'  => 'John Anderson',
--        'role'  => 'Chief Executive Officer',
--        'image' => 'https://via.placeholder.com/300x300',
-+        'name' => 'Hafiz Umer Sheikh',
-+        'role' => 'CEO',
-+        'icon' => 'fas fa-user-tie',
-     ),
-     array(
--        'name'  => 'Sarah Mitchell',
--        'role'  => 'Chief Technology Officer',
--        'image' => 'https://via.placeholder.com/300x300',
-+        'name' => 'Muneeb Khan',
-+        'role' => 'CTO',
-+        'icon' => 'fas fa-user-cog',
-     ),
-     array(
--        'name'  => 'David Thompson',
--        'role'  => 'Lead Developer',
--        'image' => 'https://via.placeholder.com/300x300',
--    ),
--    array(
--        'name'  => 'Emily Carter',
--        'role'  => 'UI/UX Designer',
--        'image' => 'https://via.placeholder.com/300x300',
--    ),
--    array(
--        'name'  => 'Michael Roberts',
--        'role'  => 'Project Manager',
--        'image' => 'https://via.placeholder.com/300x300',
--    ),
--    array(
--        'name'  => 'Jessica Williams',
--        'role'  => 'Marketing Specialist',
--        'image' => 'https://via.placeholder.com/300x300',
-+        'name' => 'Sana Khan',
-+        'role' => 'COO',
-+        'icon' => 'fas fa-user-circle',
-     ),
- );
- ?>
++    // Home page team members section hook function
++    if ( ! function_exists( 'techbiz_home_team_members_cb' ) ) {
++        function techbiz_home_team_members_cb() {
++            if ( ! is_home() && ! is_front_page() ) {
++                return;
++            }
++
++            $techbiz_team_members = array(
++                array(
++                    'name' => 'Hafiz Umer Sheikh',
++                    'role' => 'CEO',
++                    'icon' => 'fas fa-user-tie',
++                ),
++                array(
++                    'name' => 'Muneeb Khan',
++                    'role' => 'CTO',
++                    'icon' => 'fas fa-user-cog',
++                ),
++                array(
++                    'name' => 'Sana Khan',
++                    'role' => 'COO',
++                    'icon' => 'fas fa-user-circle',
++                ),
++            );
++
++            echo '<!-- Home Team Members Section -->';
++            echo '<section class="vs-team-wrapper space-top space-extra-bottom">';
++                echo '<div class="container">';
++                    echo '<div class="vs-teams-wrapper">';
++                        echo '<div class="row justify-content-center">';
++                            foreach ( $techbiz_team_members as $member ) {
++                                echo '<div class="col-lg-4 col-sm-6">';
++                                    echo '<!-- Single Team Member -->';
++                                    echo '<div class="team-style1 text-center">';
++                                        echo '<div class="team-img">';
++                                            echo '<i class="' . esc_attr( $member['icon'] ) . '" style="font-size: 80px; color: #6c757d;"></i>';
++                                        echo '</div>';
++                                        echo '<div class="team-content">';
++                                            echo '<h4 class="team-title">' . esc_html( $member['name'] ) . '</h4>';
++                                            echo '<p class="team-degi">' . esc_html( $member['role'] ) . '</p>';
++                                        echo '</div>';
++                                    echo '</div>';
++                                    echo '<!-- End Single Team Member -->';
++                                echo '</div>';
++                            }
++                        echo '</div>';
++                    echo '</div>';
++                echo '</div>';
++            echo '</section>';
++            echo '<!-- End Home Team Members Section -->';
++        }
++    }
++
+     if( ! function_exists( 'techbiz_blog_postexcerpt_read_content_cb') ) {
+         function techbiz_blog_postexcerpt_read_content_cb( ) {
+             if( class_exists( 'ReduxFramework' ) ) {
+diff --git a/themes/techbiz/inc/hooks/hooks.php b/themes/techbiz/inc/hooks/hooks.php
+index 69ab6e9..888dadc 100644
+--- a/themes/techbiz/inc/hooks/hooks.php
++++ b/themes/techbiz/inc/hooks/hooks.php
+@@ -194,4 +194,9 @@
+ 	/**
+ 	* Hook for Page Content
+ 	*/
+-	add_action( 'techbiz_page_content', 'techbiz_page_content_cb', 10 );
+\ No newline at end of file
++	add_action( 'techbiz_page_content', 'techbiz_page_content_cb', 10 );
++
++	/**
++	* Hook for Home Page Team Members Section
++	*/
++	add_action( 'techbiz_home_team_members', 'techbiz_home_team_members_cb', 10 );
+\ No newline at end of file
+diff --git a/themes/techbiz/index.php b/themes/techbiz/index.php
+index fba7889..4619faa 100644
+--- a/themes/techbiz/index.php
++++ b/themes/techbiz/index.php
+@@ -91,5 +91,16 @@ if ( ! defined( 'ABSPATH' ) ) {
+     */
+     do_action( 'techbiz_blog_end_wrap' );
  
- <!-- Teams Grid -->
- <div class="vs-teams-wrapper">
--    <div class="row">
-+    <div class="row justify-content-center">
-         <?php foreach ( $techbiz_team_members as $member ) : ?>
-         <div class="col-lg-4 col-sm-6">
-             <!-- Single Team Member -->
--            <div class="team-style1">
-+            <div class="team-style1 text-center">
-                 <div class="team-img">
--                    <img
--                        src="<?php echo esc_url( $member['image'] ); ?>"
--                        alt="<?php echo esc_attr( $member['name'] ); ?>"
--                    />
-+                    <i class="<?php echo esc_attr( $member['icon'] ); ?>" style="font-size: 80px; color: #6c757d;"></i>
-                 </div>
-                 <div class="team-content">
-                     <h4 class="team-title"><?php echo esc_html( $member['name'] ); ?></h4>
++    /**
++    *
++    * Hook for Home Page Team Members Section
++    *
++    * Hook techbiz_home_team_members
++    *
++    * @Hooked techbiz_home_team_members_cb 10
++    *
++    */
++    do_action( 'techbiz_home_team_members' );
++
+     //footer
+     get_footer();
+\ No newline at end of file

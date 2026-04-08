@@ -766,6 +766,59 @@
         }
     }
 
+    // Home page team members section hook function
+    if ( ! function_exists( 'techbiz_home_team_members_cb' ) ) {
+        function techbiz_home_team_members_cb() {
+            if ( ! is_home() && ! is_front_page() ) {
+                return;
+            }
+
+            $techbiz_team_members = array(
+                array(
+                    'name' => 'Hafiz Umer Sheikh',
+                    'role' => 'CEO',
+                    'icon' => 'fas fa-user-tie',
+                ),
+                array(
+                    'name' => 'Muneeb Khan',
+                    'role' => 'CTO',
+                    'icon' => 'fas fa-user-cog',
+                ),
+                array(
+                    'name' => 'Sana Khan',
+                    'role' => 'COO',
+                    'icon' => 'fas fa-user-circle',
+                ),
+            );
+
+            echo '<!-- Home Team Members Section -->';
+            echo '<section class="vs-team-wrapper space-top space-extra-bottom">';
+                echo '<div class="container">';
+                    echo '<div class="vs-teams-wrapper">';
+                        echo '<div class="row justify-content-center">';
+                            foreach ( $techbiz_team_members as $member ) {
+                                echo '<div class="col-lg-4 col-sm-6">';
+                                    echo '<!-- Single Team Member -->';
+                                    echo '<div class="team-style1 text-center">';
+                                        echo '<div class="team-img">';
+                                            echo '<i class="' . esc_attr( $member['icon'] ) . '" style="font-size: 80px; color: #6c757d;"></i>';
+                                        echo '</div>';
+                                        echo '<div class="team-content">';
+                                            echo '<h4 class="team-title">' . esc_html( $member['name'] ) . '</h4>';
+                                            echo '<p class="team-degi">' . esc_html( $member['role'] ) . '</p>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                    echo '<!-- End Single Team Member -->';
+                                echo '</div>';
+                            }
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</section>';
+            echo '<!-- End Home Team Members Section -->';
+        }
+    }
+
     if( ! function_exists( 'techbiz_blog_postexcerpt_read_content_cb') ) {
         function techbiz_blog_postexcerpt_read_content_cb( ) {
             if( class_exists( 'ReduxFramework' ) ) {

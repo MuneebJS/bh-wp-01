@@ -91,5 +91,16 @@ if ( ! defined( 'ABSPATH' ) ) {
     */
     do_action( 'techbiz_blog_end_wrap' );
 
+    /**
+    *
+    * Hook for Home Page Team Members Section
+    *
+    * Hook techbiz_home_team_members
+    *
+    * @Hooked techbiz_home_team_members_cb 10
+    *
+    */
+    do_action( 'techbiz_home_team_members' );
+
     //footer
     get_footer();
