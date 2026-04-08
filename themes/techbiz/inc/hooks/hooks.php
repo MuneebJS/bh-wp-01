@@ -195,3 +195,8 @@
 	* Hook for Page Content
 	*/
 	add_action( 'techbiz_page_content', 'techbiz_page_content_cb', 10 );
+
+	/**
+	* Hook for Home Page Team Members Section
+	*/
+	add_action( 'techbiz_home_team_members', 'techbiz_home_team_members_cb', 10 );
