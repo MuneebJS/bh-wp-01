@@ -37,53 +37,34 @@ do_action( 'techbiz_page_start_wrap' );
  */
 do_action( 'techbiz_page_col_start_wrap' );
 
-// Dummy team members — replace with dynamic data (CPT, ACF, etc.) when ready
 $techbiz_team_members = array(
     array(
-        'name'  => 'John Anderson',
-        'role'  => 'Chief Executive Officer',
-        'image' => 'https://via.placeholder.com/300x300',
+        'name' => 'Hafiz Umer Sheikh',
+        'role' => 'CEO',
+        'icon' => 'fas fa-user-tie',
     ),
     array(
-        'name'  => 'Sarah Mitchell',
-        'role'  => 'Chief Technology Officer',
-        'image' => 'https://via.placeholder.com/300x300',
+        'name' => 'Muneeb Khan',
+        'role' => 'CTO',
+        'icon' => 'fas fa-user-cog',
     ),
     array(
-        'name'  => 'David Thompson',
-        'role'  => 'Lead Developer',
-        'image' => 'https://via.placeholder.com/300x300',
-    ),
-    array(
-        'name'  => 'Emily Carter',
-        'role'  => 'UI/UX Designer',
-        'image' => 'https://via.placeholder.com/300x300',
-    ),
-    array(
-        'name'  => 'Michael Roberts',
-        'role'  => 'Project Manager',
-        'image' => 'https://via.placeholder.com/300x300',
-    ),
-    array(
-        'name'  => 'Jessica Williams',
-        'role'  => 'Marketing Specialist',
-        'image' => 'https://via.placeholder.com/300x300',
+        'name' => 'Sana Khan',
+        'role' => 'COO',
+        'icon' => 'fas fa-user-circle',
     ),
 );
 ?>
 
 <!-- Teams Grid -->
 <div class="vs-teams-wrapper">
-    <div class="row">
+    <div class="row justify-content-center">
         <?php foreach ( $techbiz_team_members as $member ) : ?>
         <div class="col-lg-4 col-sm-6">
             <!-- Single Team Member -->
-            <div class="team-style1">
+            <div class="team-style1 text-center">
                 <div class="team-img">
-                    <img
-                        src="<?php echo esc_url( $member['image'] ); ?>"
-                        alt="<?php echo esc_attr( $member['name'] ); ?>"
-                    />
+                    <i class="<?php echo esc_attr( $member['icon'] ); ?>" style="font-size: 80px; color: #6c757d;"></i>
                 </div>
                 <div class="team-content">
                     <h4 class="team-title"><?php echo esc_html( $member['name'] ); ?></h4>
