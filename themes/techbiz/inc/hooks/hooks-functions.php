@@ -819,6 +819,52 @@
         }
     }
 
+    // Home About Us Section Function
+    if ( ! function_exists( 'techbiz_home_about_us_cb' ) ) {
+        function techbiz_home_about_us_cb() {
+            if ( ! is_home() && ! is_front_page() ) {
+                return;
+            }
+
+            echo '<!-- Home About Us Section -->';
+            echo '<section class="vs-about-wrapper space-top space-extra-bottom">';
+                echo '<div class="container">';
+                    echo '<div class="row align-items-center">';
+                        echo '<div class="col-lg-6">';
+                            echo '<div class="about-content">';
+                                echo '<div class="title-area mb-35">';
+                                    echo '<span class="sub-title">About Our Company</span>';
+                                    echo '<h2 class="sec-title">Leading Technology Solutions Provider</h2>';
+                                echo '</div>';
+                                echo '<p class="about-text">';
+                                    echo 'We are a dynamic technology company dedicated to delivering innovative solutions that drive business growth and digital transformation. Our team of experienced professionals combines cutting-edge technology with industry expertise to help organizations achieve their goals.';
+                                echo '</p>';
+                                echo '<div class="about-list-wrap">';
+                                    echo '<ul class="about-list list-unstyled">';
+                                        echo '<li><i class="far fa-check-circle"></i> Expert team of certified professionals</li>';
+                                        echo '<li><i class="far fa-check-circle"></i> Cutting-edge technology solutions</li>';
+                                        echo '<li><i class="far fa-check-circle"></i> 24/7 customer support and maintenance</li>';
+                                        echo '<li><i class="far fa-check-circle"></i> Proven track record of successful projects</li>';
+                                    echo '</ul>';
+                                echo '</div>';
+                                echo '<div class="btn-group mt-40">';
+                                    echo '<a href="#" class="vs-btn">Learn More</a>';
+                                    echo '<a href="#" class="vs-btn style2">Contact Us</a>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+                        echo '<div class="col-lg-6">';
+                            echo '<div class="about-img">';
+                                echo '<img src="' . get_template_directory_uri() . '/assets/img/about/about-1-1.jpg" alt="About Us" class="img-fluid">';
+                            echo '</div>';
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</section>';
+            echo '<!-- End Home About Us Section -->';
+        }
+    }
+
     if( ! function_exists( 'techbiz_blog_postexcerpt_read_content_cb') ) {
         function techbiz_blog_postexcerpt_read_content_cb( ) {
             if( class_exists( 'ReduxFramework' ) ) {

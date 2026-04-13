@@ -200,3 +200,8 @@
 	* Hook for Home Page Team Members Section
 	*/
 	add_action( 'techbiz_home_team_members', 'techbiz_home_team_members_cb', 10 );
+
+	/**
+	* Hook for Home Page About Us Section
+	*/
+	add_action( 'techbiz_home_about_us', 'techbiz_home_about_us_cb', 10 );
