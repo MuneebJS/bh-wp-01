@@ -15,81 +15,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     get_header();
 
     /**
-    * 
-    * Hook for Blog Start Wrapper
     *
-    * Hook techbiz_blog_start_wrap
+    * Hook for About Us Section
     *
-    * @Hooked techbiz_blog_start_wrap_cb 10
-    *  
+    * Hook techbiz_home_about_us
+    *
+    * @Hooked techbiz_home_about_us_cb 10
+    *
     */
-    do_action( 'techbiz_blog_start_wrap' );
-
-    /**
-    * 
-    * Hook for Blog Column Start Wrapper
-    *
-    * Hook techbiz_blog_col_start_wrap
-    *
-    * @Hooked techbiz_blog_col_start_wrap_cb 10
-    *  
-    */
-    do_action( 'techbiz_blog_col_start_wrap' );
-
-    /**
-    * 
-    * Hook for Blog Content
-    *
-    * Hook techbiz_blog_content
-    *
-    * @Hooked techbiz_blog_content_cb 10
-    *  
-    */
-    do_action( 'techbiz_blog_content' );
-
-    /**
-    * 
-    * Hook for Blog Pagination
-    *
-    * Hook techbiz_blog_pagination
-    *
-    * @Hooked techbiz_blog_pagination_cb 10
-    *  
-    */
-    do_action( 'techbiz_blog_pagination' ); 
-
-    /**
-    * 
-    * Hook for Blog Column End Wrapper
-    *
-    * Hook techbiz_blog_col_end_wrap
-    *
-    * @Hooked techbiz_blog_col_end_wrap_cb 10
-    *  
-    */
-    do_action( 'techbiz_blog_col_end_wrap' ); 
-
-    /**
-    * 
-    * Hook for Blog Sidebar
-    *
-    * Hook techbiz_blog_sidebar
-    *
-    * @Hooked techbiz_blog_sidebar_cb 10
-    *  
-    */
-    do_action( 'techbiz_blog_sidebar' );     
-        
-    /**
-    * 
-    * Hook for Blog End Wrapper
-    *
-    * Hook techbiz_blog_end_wrap
-    *
-    * @Hooked techbiz_blog_end_wrap_cb 10
-    *  
-    */
-    do_action( 'techbiz_blog_end_wrap' );
+    do_action( 'techbiz_home_about_us' );
 
     /**
     *
