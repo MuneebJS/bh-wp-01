@@ -4,11 +4,8 @@
  * @Version    : 1.0
  * @Author     : Vecurosoft
  * @Author URI : https://www.vecurosoft.com/
- * test changes
+ *
  */
-
-
-
 
     // Block direct access
     if( ! defined( 'ABSPATH' ) ){
